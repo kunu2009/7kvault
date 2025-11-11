@@ -1,0 +1,50 @@
+# Python
+*.py
+*.pyc
+__pycache__/
+*.so
+.Python
+*.egg-info/
+venv/
+env/
+
+# Vault data
+.secure_vault/
+vault/
+*.enc
+vault_config.json
+
+# Build files
+dist/
+build/
+*.spec
+
+# Test files
+test_vault/
+test_images/
+test_videos/
+
+# Backups
+vault_app_backup.py
+vault_app_old.py
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git
+.git/
+.gitignore
+
+# Batch files (not needed for web)
+*.bat
+
+# Requirements (not needed for static site)
+requirements*.txt
+
+# Documentation markdown (only website needed)
+*.md
+
+# Only deploy the docs folder
+!docs/
