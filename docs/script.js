@@ -70,37 +70,37 @@ document.querySelectorAll('.feature-card, .step, .download-card, .faq-item').for
     observer.observe(el);
 });
 
-// Mobile menu toggle (if needed)
-const createMobileMenu = () => {
-    if (window.innerWidth <= 768) {
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks && !document.querySelector('.mobile-menu-btn')) {
-            // Add mobile menu button
-            const menuBtn = document.createElement('button');
-            menuBtn.classList.add('mobile-menu-btn');
-            menuBtn.innerHTML = '☰';
-            menuBtn.style.cssText = `
-                display: block;
-                background: none;
-                border: none;
-                color: var(--text-primary);
-                font-size: 2rem;
-                cursor: pointer;
-                padding: 0.5rem;
-            `;
-            
-            menuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('mobile-active');
+// Mobile menu toggle
+const initMobileMenu = () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '☰';
             });
-            
-            document.querySelector('.navbar .container').appendChild(menuBtn);
-        }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '☰';
+            }
+        });
     }
 };
 
-// Call on load and resize
-createMobileMenu();
-window.addEventListener('resize', createMobileMenu);
+// Initialize mobile menu
+initMobileMenu();
 
 // Track download clicks (for analytics if needed)
 document.querySelectorAll('.btn-download').forEach(btn => {
