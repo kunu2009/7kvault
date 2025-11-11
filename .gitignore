@@ -1,0 +1,58 @@
+# Personal vault data - NEVER commit these!
+vault_app_backup.py
+vault_app_old.py
+*.pyc
+__pycache__/
+.vscode/
+.idea/
+
+# User's encrypted vault data
+# The app stores data in %USERPROFILE%\.secure_vault\ by default
+# but just in case, ignore any local vault data
+.secure_vault/
+vault/
+*.enc
+media_index.enc
+vault_config.json
+
+# Test data
+test_vault/
+test_images/
+test_videos/
+
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
